@@ -14,6 +14,8 @@ public interface Constants {
             R.id.number_6_button,
             R.id.number_7_button,
             R.id.number_8_button,
-            R.id.number_9_button
+            R.id.number_9_button,
+            R.id.star_button,
+            R.id.pound_button
     };
 }
