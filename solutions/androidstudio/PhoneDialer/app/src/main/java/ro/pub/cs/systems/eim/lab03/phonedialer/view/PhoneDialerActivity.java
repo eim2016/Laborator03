@@ -53,7 +53,7 @@ public class PhoneDialerActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            String phoneNumber = phoneNumberEditText.getText().toString();
+            String phoneNumber = phoneNumberEditText.getText().toString().replace("#", "%23");
             Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse("tel:" + phoneNumber));
             if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
@@ -81,8 +81,8 @@ public class PhoneDialerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         phoneNumberEditText = (EditText)findViewById(R.id.phone_number_edit_text);
         Button button;
-        for (int index = 0; index < Constants.buttonIds.length; index++) {
-            button = (Button)findViewById(Constants.buttonIds[index]);
+        for (int buttonId : Constants.buttonIds) {
+            button = (Button)findViewById(buttonId);
             button.setOnClickListener(numberButtonClickListener);
         }
 
